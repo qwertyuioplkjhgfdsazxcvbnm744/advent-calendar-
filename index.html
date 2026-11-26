@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#173d32">
+<title>アドベントカレンダー</title>
+<style>
+:root{--forest:#173d32;--berry:#a63749;--gold:#e8c66d;--bg:#f7f1e5;--box:#ad3446;--ribbon:#f2d57f;--ink:#26342d;--paper:#fffdf8;--muted:#6d786f;--line:#e8dfcc;--shadow:0 16px 48px #173d3219}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,\"Yu Gothic\",Meiryo,sans-serif;min-height:100vh}button,input,textarea,select{font:inherit}button{cursor:pointer}.site-header{display:flex;justify-content:space-between;align-items:center;padding:14px clamp(16px,5vw,56px);background:var(--forest);color:white}.brand{font-family:Georgia,serif;letter-spacing:.08em}.header-actions{display:flex;gap:9px;align-items:center}.header-actions button{background:#ffffff17;color:white;border:1px solid #ffffff50;border-radius:999px;padding:8px 13px}.hero{text-align:center;padding:56px 18px 38px}.eyebrow{margin:0 0 9px;color:var(--berry);font-size:.72rem;font-weight:700;letter-spacing:.2em}.hero h1{font:500 clamp(2.2rem,7vw,4rem)/1.1 Georgia,\"Yu Mincho\",serif;color:var(--forest);margin:0}.hero p:last-child{max-width:620px;margin:17px auto 0;line-height:1.8;color:#56645b}.calendar-wrap{max-width:870px;margin:auto;padding:0 18px 62px}.section-title{display:flex;justify-content:center;align-items:center;gap:12px;color:var(--forest);font:500 1.55rem Georgia,serif}.section-help{text-align:center;color:var(--muted);font-size:.9rem;margin:8px 0 24px}.calendar{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(8px,2vw,16px)}.gift{position:relative;min-height:clamp(86px,14vw,126px);border:0;border-radius:13px;background:var(--box);color:white;box-shadow:0 5px 0 color-mix(in srgb,var(--box),black 22%),0 9px 20px #39151d1a;overflow:hidden;transition:transform .16s,filter .16s}.gift:hover,.gift:focus-visible{transform:translateY(-4px);filter:brightness(1.08);outline:3px solid var(--gold);outline-offset:2px}.gift:before,.gift:after{content:\"\";position:absolute;background:var(--ribbon)}.gift:before{width:10px;height:100%;left:calc(50% - 5px);top:0}.gift:after{height:9px;width:100%;left:0;top:32px}.gift-bow{position:absolute;z-index:1;top:8px;left:0;right:0;font-size:1.15rem;color:var(--ribbon)}.gift-number{position:relative;z-index:1;display:inline-block;margin-top:20px;font-size:clamp(1.3rem,4vw,2rem);font-weight:800;text-shadow:0 2px 2px #42141d77}.gift.special{background:#b58c39}.gift.opened{filter:saturate(.7)}.day-card{max-width:760px;margin:0 auto 76px;padding:clamp(20px,5vw,42px);background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);scroll-margin-top:18px}.day-card[hidden]{display:none}.day-head{display:flex;justify-content:space-between;align-items:center;gap:14px;border-bottom:1px solid var(--line);padding-bottom:16px}.day-head h2{font:500 clamp(1.45rem,4vw,2rem) Georgia,serif;color:var(--forest);margin:0}.back{border:0;background:none;color:var(--berry);font-weight:700}.day-block{margin:22px 0}.day-block h3{font-size:1rem;color:var(--forest);margin:0 0 10px}.day-block p{line-height:1.9;margin:0;white-space:pre-wrap}.day-block img,.day-block video{display:block;max-width:100%;max-height:520px;margin:10px auto;border-radius:13px}.link-list{display:flex;flex-wrap:wrap;gap:10px}.link-list a{background:#edf3eb;color:var(--forest);padding:10px 15px;border-radius:999px;text-decoration:none;font-weight:650}.quiz{background:#f4f1e7;padding:18px;border-radius:14px}.quiz label{display:block;margin:9px 0}.quiz-result{font-weight:700;margin-top:12px!important}.day-nav{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:16px;margin-top:24px}.day-nav button{border:0;background:none;color:var(--berry);font-weight:700}.footer{text-align:center;padding:20px;background:var(--forest);color:#e4ece6;font-size:.8rem}.edit-panel{position:fixed;inset:0;z-index:10;background:#14251ed9;display:flex;justify-content:center;align-items:flex-start;padding:18px;overflow:auto}.edit-panel[hidden]{display:none}.editor{width:min(850px,100%);background:#fffdf8;border-radius:18px;padding:22px;box-shadow:0 20px 70px #0005}.editor-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.editor-head h2{color:var(--forest);margin:0;font-size:1.4rem}.close-editor{border:0;background:#eee9de;border-radius:50%;width:38px;height:38px;font-size:1.2rem}.editor-note{background:#f1f5ec;border-radius:12px;padding:12px 14px;line-height:1.65;font-size:.9rem}.editor-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.editor-section{border:1px solid var(--line);border-radius:14px;padding:15px;margin:14px 0}.editor-section h3{font-size:1rem;color:var(--forest);margin:0 0 12px}.field{display:block;margin:10px 0}.field span{display:block;font-size:.86rem;font-weight:650;margin-bottom:5px}.field input[type=text],.field input[type=url],.field input[type=number],.field textarea,.field select{width:100%;padding:10px 11px;border:1px solid #cfc8b7;border-radius:9px;background:white;color:var(--ink)}.field textarea{min-height:90px;resize:vertical}.field input[type=color]{width:56px;height:38px;padding:3px;border:1px solid #cfc8b7;border-radius:8px;background:white}.field input[type=file]{display:block;width:100%;font-size:.85rem}.tiny-help{font-size:.78rem;color:var(--muted);line-height:1.55}.editor-buttons{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}.editor-buttons button{border:0;border-radius:999px;padding:11px 17px;font-weight:700}.preview-button{background:#ebe6d9;color:var(--ink)}.download-button{background:var(--forest);color:white}.status{min-height:1.4em;color:var(--forest);font-size:.9rem;margin:10px 0 0}.snow{pointer-events:none;position:fixed;inset:0;z-index:2;opacity:.42;background-image:radial-gradient(2px 2px at 20px 35px,#fff 98%,transparent),radial-gradient(2px 2px at 95px 115px,#fff 98%,transparent),radial-gradient(1.5px 1.5px at 160px 65px,#fff 98%,transparent);background-size:210px 190px;animation:fall 18s linear infinite}.snow.off{display:none}@keyframes fall{to{background-position:0 380px}}@media(max-width:600px){.site-header{padding:12px 13px}.brand{font-size:.82rem}.header-actions button{padding:7px 10px;font-size:.8rem}.hero{padding:43px 16px 31px}.calendar-wrap{padding-left:12px;padding-right:12px}.calendar{gap:8px}.gift{min-height:76px;border-radius:10px}.gift:after{top:28px}.gift-number{margin-top:18px}.day-head{align-items:flex-start;flex-direction:column}.editor{padding:15px}.editor-grid{grid-template-columns:1fr}.edit-panel{padding:8px}.editor-section{padding:12px}}
+</style>
+</head>
+<body>
+<div class="snow" id="snow" aria-hidden="true"></div>
+<header class="site-header">
+  <div class="brand">✦ CHRISTMAS ✦</div>
+  <div class="header-actions">
+    <button id="musicButton" type="button">♫ 音楽</button>
+    <button id="editButton" type="button">⚙ 編集する</button>
+  </div>
+</header>
+<main>
+  <section class="hero">
+    <p class="eyebrow">A LITTLE SURPRISE EVERY DAY</p>
+    <h1 id="siteTitle">アドベントカレンダー</h1>
+    <p id="siteIntro">プレゼントをひとつずつ開けてね。</p>
+  </section>
+  <section class="calendar-wrap" aria-label="アドベントカレンダー">
+    <div class="section-title"><span>🎄</span><span>日付を選んでね</span><span>🎄</span></div>
+    <p class="section-help">箱を押すと、その日のプレゼントが開きます。</p>
+    <div class="calendar" id="calendar"></div>
+  </section>
+  <section class="day-card" id="dayCard" hidden></section>
+</main>
+<footer class="footer">Made with love ♥</footer>
+
+<section class="edit-panel" id="editPanel" hidden>
+  <div class="editor">
+    <div class="editor-head"><h2>カレンダーを編集</h2><button class="close-editor" id="closeEditor" aria-label="閉じる">×</button></div>
+    <p class="editor-note">日付を選び、ノート・写真・動画・リンクを追加できます。編集後に「更新用ファイルをダウンロード」し、そのファイルをGitHubへアップロードすると公開サイトが更新されます。</p>
+    <div class="editor-section">
+      <h3>カレンダー全体</h3>
+      <div class="editor-grid">
+        <label class="field"><span>タイトル</span><input id="editTitle" type="text"></label>
+        <label class="field"><span>最初のメッセージ</span><input id="editIntro" type="text"></label>
+        <label class="field"><span>背景の色</span><input id="editBg" type="color"></label>
+        <label class="field"><span>プレゼント箱の色</span><input id="editBox" type="color"></label>
+        <label class="field"><span>リボンの色</span><input id="editRibbon" type="color"></label>
+        <label class="field"><span>箱に表示するマーク</span><input id="editGiftMark" type="text" maxlength="4" value="✦"></label>
+        <label class="field"><span>雪の表示</span><select id="editSnow"><option value="on">雪を降らせる</option><option value="off">雪なし</option></select></label>
+        <label class="field"><span>背景音楽（任意）</span><input id="musicUrl" type="url" placeholder="https://…"><span class="tiny-help">音楽ファイルのURLを貼るか、音楽ファイルを選択してください。</span><input id="musicFile" type="file" accept="audio/*"></label>
+      </div>
+    </div>
+    <div class="editor-section">
+      <h3>日ごとのプレゼント</h3>
+      <label class="field"><span>編集する日</span><select id="editDay"></select></label>
+      <div class="editor-grid">
+        <label class="field"><span>この日のタイトル</span><input id="dayTitle" type="text" placeholder="例：いっしょに撮った写真"></label>
+        <label class="field"><span>ノート・メッセージ</span><textarea id="dayNote" placeholder="この日に伝えたいこと"></textarea></label>
+        <label class="field"><span>写真のURL（任意）</span><input id="imageUrl" type="url" placeholder="https://…"><span class="tiny-help">または下から写真ファイルを選べます。</span><input id="imageFile" type="file" accept="image/*"></label>
+        <label class="field"><span>動画のURL（任意）</span><input id="videoUrl" type="url" placeholder="https://…"><span class="tiny-help">または短い動画ファイルを選べます。大きな動画はURLがおすすめです。</span><input id="videoFile" type="file" accept="video/*"></label>
+        <label class="field"><span>リンク（1行に1つ）</span><textarea id="dayLinks" placeholder="リンク名 | https://example.com"></textarea><span class="tiny-help">例：今日の曲 | https://example.com</span></label>
+        <label class="field"><span>クイズ（任意）</span><textarea id="quizQuestion" placeholder="質問（空欄ならクイズなし）"></textarea><span class="tiny-help">選択肢は1行に1つ。正解の番号は下に入力。</span><textarea id="quizOptions" placeholder="選択肢1&#10;選択肢2"></textarea><input id="quizAnswer" type="number" min="1" max="10" placeholder="正解の番号（1から）"></label>
+      </div>
+      <label class="field"><span>内容の並び順</span><select id="contentOrder"><option value="note,image,video,links,quiz">ノート → 写真 → 動画 → リンク → クイズ</option><option value="image,note,video,links,quiz">写真 → ノート → 動画 → リンク → クイズ</option><option value="video,note,image,links,quiz">動画 → ノート → 写真 → リンク → クイズ</option></select></label>
+    </div>
+    <div class="editor-buttons"><button class="preview-button" id="previewButton" type="button">プレビューを更新</button><button class="download-button" id="downloadButton" type="button">更新用ファイルをダウンロード</button></div>
+    <p class="status" id="editorStatus" role="status"></p>
+  </div>
+</section>
+
+<script id="calendar-data" type="application/json">{"title":"アドベントカレンダー","intro":"プレゼントをひとつずつ開けてね。","theme":{"background":"#f7f1e5","box":"#ad3446","ribbon":"#f2d57f","giftMark":"✦","snow":true,"music":""},"order":"note,image,video,links,quiz","days":[{"day":1},{"day":2},{"day":3},{"day":4},{"day":5},{"day":6},{"day":7},{"day":8},{"day":9},{"day":10},{"day":11},{"day":12},{"day":13},{"day":14},{"day":15},{"day":16},{"day":17},{"day":18},{"day":19},{"day":20},{"day":21},{"day":22},{"day":23},{"day":24},{"day":25}]}</script>
+<script>
+(function(){
+"use strict";
+var node=document.getElementById("calendar-data");
+var data=JSON.parse(node.textContent);
+var imageFileData="";
+var videoFileData="";
+var musicFileData="";
+var currentDay=1;
+function byId(id){return document.getElementById(id)}
+function esc(value){return String(value||"").replace(/[&<>\"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]})}
+function webUrl(value){var v=String(value||"").trim();return /^https:\/\//i.test(v)?v:""}
+function mediaUrl(value){var v=String(value||"").trim();if(/^data:(image|video|audio)\//i.test(v))return v;return webUrl(v)}
+function setTheme(){document.documentElement.style.setProperty("--bg",data.theme.background||"#f7f1e5");document.documentElement.style.setProperty("--box",data.theme.box||"#ad3446");document.documentElement.style.setProperty("--ribbon",data.theme.ribbon||"#f2d57f");byId("siteTitle").textContent=data.title||"アドベントカレンダー";byId("siteIntro").textContent=data.intro||"";document.title=(data.title||"アドベントカレンダー");byId("snow").classList.toggle("off",!data.theme.snow)}
+function getDay(n){return data.days[n-1]||(data.days[n-1]={day:n})}
+function renderCalendar(){var cal=byId("calendar");cal.textContent="";for(var n=1;n<=25;n++){var b=document.createElement("button");b.type="button";b.className="gift"+(n===25?" special":"");b.setAttribute("aria-label","Day "+n+" を開く");b.innerHTML="<span class=\"gift-bow\">"+esc(data.theme.giftMark||"✦")+"</span><span class=\"gift-number\">"+(n===25?"★":n)+"</span>";b.addEventListener("click",(function(day){return function(){showDay(day)}})(n));cal.appendChild(b)}}
+function renderDay(n){var d=getDay(n);var card=byId("dayCard");var pieces={};if(d.note)pieces.note="<section class=\"day-block\"><h3>💌 ノート</h3><p>"+esc(d.note)+"</p></section>";if(d.image){var im=mediaUrl(d.image);if(im)pieces.image="<section class=\"day-block\"><h3>📷 写真</h3><img src=\""+esc(im)+"\" alt=\""+esc(d.imageAlt||"この日の写真")+"\"></section>"}if(d.video){var vi=mediaUrl(d.video);if(vi)pieces.video="<section class=\"day-block\"><h3>🎬 動画</h3><video controls playsinline preload=\"metadata\" src=\""+esc(vi)+"\"></video></section>"}if(Array.isArray(d.links)&&d.links.length){var links=d.links.map(function(x){var u=webUrl(x.url);return u?"<a href=\""+esc(u)+"\" target=\"_blank\" rel=\"noopener noreferrer\">"+esc(x.label||u)+" ↗</a>":""}).join("");if(links)pieces.links="<section class=\"day-block\"><h3>🔗 リンク</h3><div class=\"link-list\">"+links+"</div></section>"}if(d.quiz&&d.quiz.question&&d.quiz.options&&d.quiz.options.length){var opts=d.quiz.options.map(function(o,i){return "<label><input type=\"radio\" name=\"quiz\" value=\""+i+"\"> "+esc(o)+"</label>"}).join("");pieces.quiz="<section class=\"day-block\"><h3>❓ クイズ</h3><div class=\"quiz\"><p>"+esc(d.quiz.question)+"</p>"+opts+"<button class=\"preview-button quizCheck\" type=\"button\">答えを確認</button><p class=\"quiz-result\" role=\"status\"></p></div></section>"}var order=(data.order||"note,image,video,links,quiz").split(",");var body=order.map(function(k){return pieces[k]||""}).join("");if(!body)body="<p>この日のプレゼントはまだありません。編集ボタンから追加できます。</p>";card.innerHTML="<div class=\"day-head\"><h2>🎁 Day "+n+(d.title?" — "+esc(d.title):"")+"</h2><button class=\"back\" type=\"button\">カレンダーに戻る</button></div><div>"+body+"</div><div class=\"day-nav\"><button type=\"button\" class=\"prev\">"+(n>1?"← Day "+(n-1):"")+"</button><button type=\"button\" class=\"next\">"+(n<25?"Day "+(n+1)+" →":"")+"</button></div>";
+card.hidden=false;card.querySelector(".back").addEventListener("click",function(){card.hidden=true;history.replaceState(null,"",location.pathname)});var prev=card.querySelector(".prev"),next=card.querySelector(".next");if(n>1)prev.addEventListener("click",function(){showDay(n-1)});if(n<25)next.addEventListener("click",function(){showDay(n+1)});var qc=card.querySelector(".quizCheck");if(qc)qc.addEventListener("click",function(){var choice=card.querySelector("input[name=quiz]:checked");var result=card.querySelector(".quiz-result");result.textContent=!choice?"答えを選んでね。":Number(choice.value)+1===Number(d.quiz.answer)?"正解！":"もう一度考えてみてね。"});card.scrollIntoView({behavior:"smooth",block:"start"})}
+function showDay(n){currentDay=n;renderDay(n);history.replaceState(null,"","?day="+n+"#dayCard")}
+function populateDaySelect(){var s=byId("editDay");for(var i=1;i<=25;i++){var o=document.createElement("option");o.value=String(i);o.textContent="Day "+i;s.appendChild(o)}}
+function loadEditor(){byId("editTitle").value=data.title||"";byId("editIntro").value=data.intro||"";byId("editBg").value=data.theme.background||"#f7f1e5";byId("editBox").value=data.theme.box||"#ad3446";byId("editRibbon").value=data.theme.ribbon||"#f2d57f";byId("editGiftMark").value=data.theme.giftMark||"✦";byId("editSnow").value=data.theme.snow?"on":"off";byId("musicUrl").value=data.theme.music&&!data.theme.music.startsWith("data:")?data.theme.music:"";musicFileData=data.theme.music&&data.theme.music.startsWith("data:")?data.theme.music:"";byId("contentOrder").value=data.order||"note,image,video,links,quiz";loadDayFields(Number(byId("editDay").value||1))}
+function loadDayFields(n){currentDay=n;var d=getDay(n);byId("dayTitle").value=d.title||"";byId("dayNote").value=d.note||"";imageFileData=d.image&&d.image.startsWith("data:")?d.image:"";videoFileData=d.video&&d.video.startsWith("data:")?d.video:"";byId("imageUrl").value=d.image&&!d.image.startsWith("data:")?d.image:"";byId("videoUrl").value=d.video&&!d.video.startsWith("data:")?d.video:"";byId("dayLinks").value=(d.links||[]).map(function(x){return (x.label||"リンク")+" | "+(x.url||"")}).join("\n");byId("quizQuestion").value=d.quiz&&d.quiz.question||"";byId("quizOptions").value=d.quiz&&d.quiz.options?d.quiz.options.join("\n"):"";byId("quizAnswer").value=d.quiz&&d.quiz.answer||""}
+function readFile(file,kind,callback){if(!file)return;var limit=kind==="video"?18*1024*1024:10*1024*1024;if(file.size>limit){byId("editorStatus").textContent=kind==="video"?"この動画は大きすぎます。動画URLを貼ってください。":"このファイルは大きすぎます。小さいファイルかURLを使ってください。";return}var r=new FileReader();r.onload=function(){callback(String(r.result||""));byId("editorStatus").textContent="ファイルを追加しました。"};r.onerror=function(){byId("editorStatus").textContent="ファイルを読み込めませんでした。"};r.readAsDataURL(file)}
+function saveDayFields(){var d=getDay(currentDay);d.title=byId("dayTitle").value.trim();d.note=byId("dayNote").value;d.image=imageFileData||webUrl(byId("imageUrl").value);d.video=videoFileData||webUrl(byId("videoUrl").value);d.imageAlt=d.title||"この日の写真";d.links=byId("dayLinks").value.split("\n").map(function(line){var p=line.split("|");return {label:(p[0]||"").trim(),url:webUrl((p.slice(1).join("|")||p[0]||"").trim())}}).filter(function(x){return x.url});var q=byId("quizQuestion").value.trim(),opts=byId("quizOptions").value.split("\n").map(function(x){return x.trim()}).filter(Boolean),ans=Number(byId("quizAnswer").value);d.quiz=q&&opts.length?{question:q,options:opts,answer:ans||1}:null;data.order=byId("contentOrder").value}
+function saveAllFields(){saveDayFields();data.title=byId("editTitle").value.trim()||"アドベントカレンダー";data.intro=byId("editIntro").value;data.theme.background=byId("editBg").value;data.theme.box=byId("editBox").value;data.theme.ribbon=byId("editRibbon").value;data.theme.giftMark=byId("editGiftMark").value||"✦";data.theme.snow=byId("editSnow").value==="on";data.theme.music=musicFileData||webUrl(byId("musicUrl").value);setTheme();renderCalendar()}
+function openEditor(){byId("editPanel").hidden=false;loadEditor()}
+function closeEditor(){byId("editPanel").hidden=true}
+function downloadUpdated(){saveAllFields();var serialized=JSON.stringify(data).replace(/</g,"\\u003c").replace(/>/g,"\\u003e");var html="<!doctype html>\n"+document.documentElement.outerHTML;var re=/<script id="calendar-data" type="application\/json">[\s\S]*?<\/script>/;html=html.replace(re,'<script id="calendar-data" type="application/json">'+serialized+"<"+"/script>");var blob=new Blob([html],{type:"text/html;charset=utf-8"});var a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="index.html";document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(a.href)},1500);byId("editorStatus").textContent="更新用の index.html を保存しました。GitHubで今のindex.htmlと差し替えてください。"}
+byId("editButton").addEventListener("click",openEditor);byId("closeEditor").addEventListener("click",closeEditor);byId("editDay").addEventListener("change",function(){saveDayFields();loadDayFields(Number(this.value))});byId("previewButton").addEventListener("click",function(){saveAllFields();if(!byId("dayCard").hidden)renderDay(currentDay);byId("editorStatus").textContent="プレビューを更新しました。まだ公開サイトには反映されていません。"});byId("downloadButton").addEventListener("click",downloadUpdated);
+byId("imageFile").addEventListener("change",function(){var f=this.files&&this.files[0];readFile(f,"image",function(src){imageFileData=src;byId("imageUrl").value=""})});byId("videoFile").addEventListener("change",function(){var f=this.files&&this.files[0];readFile(f,"video",function(src){videoFileData=src;byId("videoUrl").value=""})});byId("musicFile").addEventListener("change",function(){var f=this.files&&this.files[0];readFile(f,"audio",function(src){musicFileData=src;byId("musicUrl").value=""})});
+byId("imageUrl").addEventListener("input",function(){if(this.value)imageFileData=""});byId("videoUrl").addEventListener("input",function(){if(this.value)videoFileData=""});byId("musicUrl").addEventListener("input",function(){if(this.value)musicFileData=""});
+byId("musicButton").addEventListener("click",function(){var src=data.theme.music||"";if(!src){openEditor();byId("editorStatus").textContent="編集画面で音楽ファイルかURLを追加できます。";return}if(!window.calendarAudio){window.calendarAudio=new Audio(src);window.calendarAudio.loop=true}if(window.calendarAudio.paused){window.calendarAudio.play().then(function(){byId("musicButton").textContent="♫ 音楽を停止"}).catch(function(){byId("musicButton").textContent="音楽を再生できません"})}else{window.calendarAudio.pause();byId("musicButton").textContent="♫ 音楽"}});
+populateDaySelect();setTheme();renderCalendar();var dayParam=Number(new URLSearchParams(location.search).get("day"));if(dayParam>=1&&dayParam<=25)showDay(dayParam);
+})();
+</script>
+</body>
+</html>
